@@ -32,7 +32,7 @@ class FavoriteScreen extends React.Component {
               <CardTrending text={item.key} navigation={this.props.navigation} style={baseStyles.bottomBorder}/>
           )}
         />
-        <BuzzPlusButton />
+        <BuzzPlusButton navigation={this.props.navigation}/>
       </View>
     );
   }

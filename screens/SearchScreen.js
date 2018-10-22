@@ -46,7 +46,7 @@ class SearchScreen extends React.Component {
             </View>
           )}
         />
-        <BuzzPlusButton />
+        <BuzzPlusButton navigation={this.props.navigation}/>
       </View>
     );
   }

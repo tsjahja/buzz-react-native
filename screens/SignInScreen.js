@@ -93,31 +93,40 @@ class SignInScreen extends React.Component {
             <OpenSansText style={styles.tagLineText}>in your community</OpenSansText>
           </Animated.View>
         </View>
-          <Animated.View style={[styles.signInContainer, {bottom: this.signContainerHeight}]}>
-            <View style={styles.textContainer}>
-              <View style={styles.textBorderContainer}>
-                <View style={styles.iconContainer}>
-                  <MaterialIcons name='mail' size={30} style={styles.icon}/>
-                </View>
-                <TextInput style={styles.textInput} placeholder='email'/>
-              </View>
 
-            </View>
-            <View style={styles.textContainer}>
-              <View style={styles.textBorderContainer}>
-                <View style={styles.iconContainer}>
-                  <FontAwesome name='lock' size={30} style={styles.icon}/>
-                </View>
-                <TextInput style={styles.textInput} placeholder='password'/>
+        <Animated.View style={[styles.newUser, {opacity: this.tagLineOpacity}]}>
+         <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('SignUpDescription')}>
+          <OpenSansText style={styles.newUserText}>Sign Up!</OpenSansText>
+         </TouchableOpacity>
+        </Animated.View>
+
+        <Animated.View style={[styles.signInContainer, {bottom: this.signContainerHeight}]}>
+          <View style={styles.textContainer}>
+            <View style={styles.textBorderContainer}>
+              <View style={styles.iconContainer}>
+                <MaterialIcons name='mail' size={30} style={styles.icon}/>
               </View>
+              <TextInput style={styles.textInput} placeholder='email'/>
             </View>
 
-            <View>
-              <OpenSansLightText style={styles.forgotPasswordText}>Forgot password</OpenSansLightText>
+          </View>
+          <View style={styles.textContainer}>
+            <View style={styles.textBorderContainer}>
+              <View style={styles.iconContainer}>
+                <FontAwesome name='lock' size={30} style={styles.icon}/>
+              </View>
+              <TextInput style={styles.textInput} placeholder='password'/>
             </View>
-            <Animated.View style={{opacity: this.newUserOpacity}}>
-              <Button title="I'm new!" color='white' onPress={() => this.props.navigation.navigate('SignUpDescription')}/>
-            </Animated.View>
+          </View>
+
+          <View style={styles.forgotPasswordContainer}>
+           <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ResetPassword')}>
+            <OpenSansLightText style={styles.forgotPasswordText}>Forgot password</OpenSansLightText>
+           </TouchableOpacity>
+          </View>
+
         </Animated.View>
       </Animated.View>
 
@@ -145,14 +154,21 @@ const styles = StyleSheet.create({
     left: '5%',
     fontSize: 80,
   },
+  forgotPasswordContainer: {
+    alignItems: 'flex-end'
+  },
   forgotPasswordText: {
-    fontSize: 14,
+    fontSize: 16,
     color: 'white',
     textAlign: 'right',
   },
+  newUser: {
+    bottom: -200,
+    opacity: this.newUserOpacity,
+    alignItems: 'center',
+  },
   newUserText: {
     fontSize: 20,
-    paddingTop: 10,
     color: 'white',
     textAlign: 'center',
   },
